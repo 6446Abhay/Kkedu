@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Virtual Tour</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f2f6fa;
+    }
+    .header-image img {
+      width: 100%;
+      max-height: 200px;
+      object-fit: cover;
+    }
+    .welcome-text {
+      text-align: center;
+      padding: 1rem;
+    }
+    .tour-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      padding: 1rem;
+    }
+    .tour-box {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: 0.3s;
+    }
+    .tour-box:hover {
+      transform: scale(1.02);
+    }
+    .tour-box img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+    .tour-box h3 {
+      margin: 0;
+      padding: 0.5rem;
+      color: #004080;
+    }
+    a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header-image">
+    <img src="school.jpg" alt="Header">
+  </div>
+
+  <div class="welcome-text">
+    <h1>Virtual Tour to Our School</h1>
+    <p>Click to explore each area in detail</p>
+  </div>
+
+  <div class="tour-grid">
+
+    <a href="entrance.html">
+      <div class="tour-box">
+        <img src="entrance.jpg" alt="Entrance">
+        <h3>🏫 School Entrance</h3>
+      </div>
+    </a>
+
+    <a href="reception.html">
+      <div class="tour-box">
+        <img src="reception.jpg" alt="Reception">
+        <h3>👩‍💼 Reception</h3>
+      </div>
+    </a>
+
+    <a href="classroom.html">
+      <div class="tour-box">
+        <img src="classroom.jpg" alt="Classroom">
+        <h3>📚 Smart Classroom</h3>
+      </div>
+    </a>
+
+    <a href="lab.html">
+      <div class="tour-box">
+        <img src="lab.jpg" alt="Lab">
+        <h3>🔬 Science Lab</h3>
+      </div>
+    </a>
+
+    <a href="library.html">
+      <div class="tour-box">
+        <img src="library.jpg" alt="Library">
+        <h3>📖 Library</h3>
+      </div>
+    </a>
+
+    <a href="playground.html">
+      <div class="tour-box">
+        <img src="playground.jpg" alt="Playground">
+        <h3>⚽ Playground</h3>
+      </div>
+    </a>
+
+  </div>
+
+</body>
+</html>

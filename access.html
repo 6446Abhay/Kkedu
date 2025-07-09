@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Access Learn with IS</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f7fb;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    input {
+      padding: 10px;
+      width: 80%;
+      max-width: 300px;
+      margin-top: 20px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 20px;
+      margin-top: 20px;
+      font-size: 16px;
+      background: #004080;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h2>📲 Enter Your Mobile Number</h2>
+  <input type="tel" id="mobile" placeholder="e.g. 9876543210" />
+  <br />
+  <button onclick="grantAccess()">Access Content</button>
+
+  <script>
+    function grantAccess() {
+      const mobile = document.getElementById('mobile').value;
+      if (mobile.length < 10 || !/^\d{10}$/.test(mobile)) {
+        alert('Please enter a valid 10-digit mobile number');
+        return;
+      }
+      localStorage.setItem('accessMobile', mobile);
+      window.location.href = 'learn.html';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Testimonials</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .carousel-wrapper {
+      width: 90%;
+      max-width: 400px;
+      margin: 2rem auto;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .carousel-track {
+      display: flex;
+      width: 300%;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .testimonial-slide {
+      width: 100%;
+      flex-shrink: 0;
+      padding: 2rem;
+      box-sizing: border-box;
+      background: white;
+      text-align: center;
+    }
+
+    .testimonial-slide p {
+      font-size: 16px;
+      margin-bottom: 1rem;
+    }
+
+    .testimonial-slide strong {
+      color: #004080;
+    }
+
+    input[type="radio"] {
+      display: none;
+    }
+
+    #s1:checked ~ .carousel-wrapper .carousel-track {
+      transform: translateX(0%);
+    }
+
+    #s2:checked ~ .carousel-wrapper .carousel-track {
+      transform: translateX(-100%);
+    }
+
+    #s3:checked ~ .carousel-wrapper .carousel-track {
+      transform: translateX(-200%);
+    }
+
+    .nav-dots {
+      text-align: center;
+      margin: 1rem 0;
+    }
+
+    .nav-dots label {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      margin: 0 5px;
+      background: #ccc;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    #s1:checked ~ .nav-dots label[for="s1"],
+    #s2:checked ~ .nav-dots label[for="s2"],
+    #s3:checked ~ .nav-dots label[for="s3"] {
+      background: #004080;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header-image">
+    <img src="school.jpg" alt="School Header" />
+  </div>
+
+  <div class="welcome-text">
+    <h1>Testimonials</h1>
+    <p>What our parents and students say</p>
+  </div>
+
+  <!-- Radio Buttons -->
+  <input type="radio" name="slider" id="s1" checked>
+  <input type="radio" name="slider" id="s2">
+  <input type="radio" name="slider" id="s3">
+
+  <!-- Carousel -->
+  <div class="carousel-wrapper">
+    <div class="carousel-track">
+      <div class="testimonial-slide">
+        <p>“XYZ School has helped my child grow academically and socially.”</p>
+        <strong>– Mrs. Sharma, Class 5 Parent</strong>
+      </div>
+      <div class="testimonial-slide">
+        <p>“The environment is safe, creative, and nurturing.”</p>
+        <strong>– Mr. Mehta, Class 3 Parent</strong>
+      </div>
+      <div class="testimonial-slide">
+        <p>“We’re amazed by the holistic development our child has shown.”</p>
+        <strong>– Mrs. Khan, Class 8 Parent</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Dots -->
+  <div class="nav-dots">
+    <label for="s1"></label>
+    <label for="s2"></label>
+    <label for="s3"></label>
+  </div>
+
+</body>
+</html>

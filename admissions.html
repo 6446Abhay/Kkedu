@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>📝 Admission Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f8fb;
+      margin: 0;
+    }
+    .header {
+      background: #004080;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+    form {
+      max-width: 800px;
+      margin: 2rem auto;
+      background: white;
+      padding: 2rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 0.7rem;
+      margin-top: 0.3rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      margin-top: 1.5rem;
+      padding: 0.7rem 2rem;
+      background: #004080;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .back-btn {
+      text-align: center;
+      margin-top: 1rem;
+      display: block;
+      color: #004080;
+      font-weight: bold;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h2>📝 Admission / Registration Form</h2>
+  </div>
+
+  <form id="admissionForm">
+    <!-- Student Info -->
+    <label>Student Name / छात्र का नाम *</label>
+    <input type="text" name="student_name" required />
+
+    <label>Date of Birth / जन्म तिथि *</label>
+    <input type="date" name="dob" required />
+
+    <label>Gender / लिंग *</label>
+    <select name="gender" required>
+      <option value="">Select / चयन करें</option>
+      <option value="Male">Male / पुरुष</option>
+      <option value="Female">Female / महिला</option>
+      <option value="Other">Other / अन्य</option>
+    </select>
+
+    <label>Class Seeking Admission / कक्षा *</label>
+    <select name="class" required>
+      <option value="">Select Class</option>
+      <option>Nursery</option><option>LKG</option><option>UKG</option>
+      <option>Class 1</option><option>Class 2</option><option>Class 3</option>
+      <option>Class 4</option><option>Class 5</option><option>Class 6</option>
+      <option>Class 7</option><option>Class 8</option><option>Class 9</option>
+      <option>Class 10</option><option>Class 11</option><option>Class 12</option>
+    </select>
+
+    <!-- Parent Info -->
+    <label>Father's Name / पिता का नाम *</label>
+    <input type="text" name="father_name" required />
+
+    <label>Mother's Name / माता का नाम *</label>
+    <input type="text" name="mother_name" required />
+
+    <label>Mobile Number / मोबाइल नंबर *</label>
+    <input type="tel" name="mobile" required />
+
+    <label>Email Address / ई‑मेल</label>
+    <input type="email" name="email" />
+
+    <!-- Address -->
+    <label>Residential Address / पता *</label>
+    <textarea name="address" required></textarea>
+
+    <label>City / शहर *</label>
+    <input type="text" name="city" required />
+
+    <label>Pin Code / पिन कोड *</label>
+    <input type="text" name="pincode" required />
+
+    <!-- Other Info -->
+    <label>Previous School / पिछली स्कूल</label>
+    <input type="text" name="previous_school" />
+
+    <label>Medical Info / कोई स्वास्थ्य जानकारी</label>
+    <textarea name="medical_info"></textarea>
+
+    <label>
+      <input type="checkbox" required />
+      I confirm that the information provided is true / मैं पुष्टि करता हूं कि दी गई जानकारी सही है।
+    </label>
+
+    <button type="submit">Submit / भेजें</button>
+  </form>
+
+  <a href="index.html" class="back-btn">← Back to Home</a>
+
+  <script>
+    const form = document.getElementById('admissionForm');
+    const scriptURL = "YOUR_WEB_APP_URL_HERE"; // 🔁 Replace with your Google Apps Script URL
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const json = {};
+      formData.forEach((value, key) => json[key] = value);
+
+      fetch(scriptURL, {
+        method: 'POST',
+        body: JSON.stringify(json),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response => {
+        alert('✅ Form submitted successfully!');
+        form.reset();
+      })
+      .catch(error => {
+        alert('❌ Submission failed. Please try again.\n' + error.message);
+      });
+    });
+  </script>
+
+</body>
+</html>

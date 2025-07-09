@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Learn with IS</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f7fb;
+      padding: 20px;
+      margin: 0;
+    }
+    h1 {
+      color: #004080;
+      text-align: center;
+    }
+    .accordion {
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      margin-bottom: 15px;
+      overflow: hidden;
+    }
+    .accordion-header {
+      padding: 15px 20px;
+      font-size: 18px;
+      font-weight: bold;
+      background-color: #004080;
+      color: white;
+      cursor: pointer;
+    }
+    .accordion-content {
+      display: none;
+      padding: 15px 20px;
+      background: #fff;
+      border-top: 1px solid #ddd;
+    }
+    .accordion-content a {
+      display: block;
+      margin-bottom: 10px;
+      color: #004080;
+      text-decoration: none;
+    }
+    .back-link {
+      display: block;
+      margin-top: 30px;
+      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
+      color: #004080;
+    }
+    .logout-btn {
+      display: block;
+      margin: 20px auto 30px;
+      padding: 10px 20px;
+      background-color: #c62828;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ✅ Check if user has logged in -->
+<script>
+  if (!localStorage.getItem('accessMobile')) {
+    alert("Please enter your mobile number to access this page.");
+    window.location.href = "access.html";
+  }
+</script>
+
+<h1>📘 Learn with IS</h1>
+
+<!-- 🔁 Repeat this block for each class -->
+<script>
+  const classes = {
+    "Nursery": ["English", "Math"],
+    "LKG": ["English", "Math", "EVS"],
+    "UKG": ["English", "Math", "EVS"],
+    "Class 1": ["English", "Math", "EVS"],
+    "Class 2": ["English", "Math", "EVS"],
+    "Class 3": ["English", "Math", "EVS", "Hindi"],
+    "Class 4": ["English", "Math", "EVS", "Hindi"],
+    "Class 5": ["English", "Math", "EVS", "Hindi"],
+    "Class 6": ["English", "Math", "Science", "SST", "Hindi"],
+    "Class 7": ["English", "Math", "Science", "SST", "Hindi"],
+    "Class 8": ["English", "Math", "Science", "SST", "Hindi"],
+    "Class 9": ["English", "Math", "Science", "SST", "Hindi"],
+    "Class 10": ["English", "Math", "Science", "SST", "Hindi"],
+    "Class 11": ["English", "Math", "Physics", "Chemistry", "Biology", "Accounts", "Business", "Economics"],
+    "Class 12": ["English", "Math", "Physics", "Chemistry", "Biology", "Accounts", "Business", "Economics"]
+  };
+
+  document.write(`<div id="accordion-container"></div>`);
+
+  const container = document.getElementById("accordion-container");
+
+  for (const [className, subjects] of Object.entries(classes)) {
+    let html = `<div class="accordion">
+      <div class="accordion-header">${className}</div>
+      <div class="accordion-content">`;
+
+    for (const subject of subjects) {
+      html += `<h3>${subject}</h3>
+        <ul>
+          <li><a href="https://example.com/${className.toLowerCase().replace(/ /g, "")}-${subject.toLowerCase()}-textbook.pdf" target="_blank">📕 Textbook</a></li>
+          <li><a href="https://youtube.com" target="_blank">🎥 Digital Content</a></li>
+          <li><a href="https://example.com/${className.toLowerCase().replace(/ /g, "")}-${subject.toLowerCase()}-worksheet.pdf" target="_blank">📝 Worksheet</a></li>
+        </ul>`;
+    }
+
+    html += `</div></div>`;
+    container.innerHTML += html;
+  }
+</script>
+
+<!-- 🔄 Logout Button -->
+<button class="logout-btn" onclick="logout()">🚪 Logout</button>
+<a class="back-link" href="index.html">← Back to Home</a>
+
+<script>
+  const headers = document.querySelectorAll(".accordion-header");
+  headers.forEach(header => {
+    header.addEventListener("click", () => {
+      const content = header.nextElementSibling;
+      content.style.display = (content.style.display === "block") ? "none" : "block";
+    });
+  });
+
+  function logout() {
+    localStorage.removeItem('accessMobile');
+    window.location.href = "access.html";
+  }
+</script>
+
+</body>
+</html>

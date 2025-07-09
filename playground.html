@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>⚽ Playground</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #ffffff;
+    }
+    .header {
+      text-align: center;
+      background: #004080;
+      color: white;
+      padding: 1rem;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      padding: 1rem;
+    }
+    .gallery img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    .back-btn {
+      display: block;
+      text-align: center;
+      margin: 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      color: #004080;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h2>⚽ Playground</h2>
+  </div>
+
+  <div class="gallery">
+    <img src="playground1.jpg" alt="Playground 1">
+    <img src="playground2.jpg" alt="Playground 2">
+    <img src="playground3.jpg" alt="Playground 3">
+    <img src="playground4.jpg" alt="Playground 4">
+  </div>
+
+  <a href="gallery.html" class="back-btn">← Back to Tour</a>
+
+</body>
+</html>
